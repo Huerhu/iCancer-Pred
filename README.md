@@ -13,4 +13,4 @@ A tool for identifying cancer and its type in the early stage
    
 # Model Folder
 -- "model_binaray.py" needs train/test datasets, train/test labels and indexes. 
-   e.g."BRCA_test_89.csv", "BRCA_test_label.csv" and "BRCA_overlap.npy"
+e.g."BRCA_test_89.csv", "BRCA_test_label.csv" and "BRCA_overlap.npy"
