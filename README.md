@@ -1,6 +1,13 @@
 # iCancer-Pred
 A tool for identifying cancer and its type in the early stage
 
+# Model Folder
+-- "model_binaray.py" needs train/test datasets, train/test labels and indexes. 
+
+e.g."BRCA_test_89.csv", "BRCA_test_label.csv" and "BRCA_overlap.npy"
+
+-- "model_Multi.py" needs flies as same as "model_binaray.py", but only for "all_data".
+
 # Data Folder 
 -- elasticNet folder:
    "XXXX_overlap.npy" files are feature indexes obtained by using ElasticNet for feature selection in different cancer datasets.
@@ -10,8 +17,3 @@ A tool for identifying cancer and its type in the early stage
 
 -- train_test folder:
    There are datasets and corresponding labels about training and testing in this paper.
-   
-# Model Folder
--- "model_binaray.py" needs train/test datasets, train/test labels and indexes. 
-
-  e.g."BRCA_test_89.csv", "BRCA_test_label.csv" and "BRCA_overlap.npy"
