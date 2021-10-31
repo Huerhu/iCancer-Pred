@@ -2,7 +2,7 @@
 A tool for identifying cancer and its type in the early stage
 
 Web server: http://www.jci-bioinfo.cn/cancer is under maintenance.
-You can visit this address: [121.36.221.79/cancer](121.36.221.79/cancer), it is available.
+   You can visit this address: [121.36.221.79/cancer](121.36.221.79/cancer), it is available.
 
 # Model Folder
 -- "model_binaray.py" needs train/test datasets, train/test labels and indexes. 
