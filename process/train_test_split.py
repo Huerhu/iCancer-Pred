@@ -23,7 +23,7 @@ def get_label(sample_name):
             labels.append('0')
         else:
             labels.append('1')
-            # 若为多分类，则BRCA:'1', COAD:'2', KIRC:'3', KIRP:'4', LIHC:'5', LUAD:'6', LUSC:'7'
+            # 若为多分类，则 BRCA:'1', COAD:'2', KIRC:'3', KIRP:'4', LIHC:'5', LUAD:'6', LUSC:'7'
     label_data.loc['label'] = labels
     label_data.to_csv('XXXX_label.csv', index=False)
     df_label = label_data.T
