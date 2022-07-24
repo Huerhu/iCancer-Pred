@@ -34,7 +34,7 @@ def select_feature(data, label):
         elanet_train = x_train[:, index]
         enetCV = ElasticNetCV(alphas=[0.0001], l1_ratio=[.1], max_iter=5000).fit(elanet_train, y_train)
         mask = enetCV.coef_ != 0
-        index2 = np.where(mask == True)  # True的下标，feature_index是个元组
+        index2 = np.where(mask == True)
         np.save("elasticNet/XXXX第" + str(i) + "次折叠获得的特征" + ".npy", index2[0])
 
         i = i + 1
@@ -46,7 +46,6 @@ def feature_process_cv():
     data3 = np.load("CV/XXXX第3次折叠获得的特征.npy")
     data4 = np.load("CV/XXXX第4次折叠获得的特征.npy")
     data5 = np.load("CV/XXXX第5次折叠获得的特征.npy")
-    # 取重复部分
     feature1 = np.intersect1d(data1, data2)
     feature2 = np.intersect1d(feature1, data3)
     feature3 = np.intersect1d(feature2, data4)
@@ -60,7 +59,6 @@ def feature_process_elasticNet():
     data3 = np.load("elasticNet/XXXX第3次折叠获得的特征.npy")
     data4 = np.load("elasticNet/XXXX第4次折叠获得的特征.npy")
     data5 = np.load("elasticNet/XXXX第5次折叠获得的特征.npy")
-    # 取重复部分
     feature1 = np.intersect1d(data1, data2)
     feature2 = np.intersect1d(feature1, data3)
     feature3 = np.intersect1d(feature2, data4)
