@@ -45,6 +45,7 @@ def specific(confusion_matrix):
 def train_model(x, y):
     overlap = np.load("elasticNet/XXXX_overlap.npy")
     train_feature = x[:, overlap]
+
     skf = StratifiedKFold(shuffle=True, n_splits=5, random_state=0)
     true_labels = []
     probs = []
