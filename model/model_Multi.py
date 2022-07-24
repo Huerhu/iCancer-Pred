@@ -44,7 +44,7 @@ def to_onehot(label):
 
 
 def train_model(x, y):
-    overlap = np.load("elasticNet/XXXX五次折叠后特征的交集（重复）.npy")
+    overlap = np.load("elasticNet/XXXX_overlap.npy")
     train_feature = x[:, overlap]
 
     skf = StratifiedKFold(n_splits=5, random_state=0, shuffle=True)
