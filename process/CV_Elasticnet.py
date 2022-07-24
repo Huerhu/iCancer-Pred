@@ -4,6 +4,11 @@ from sklearn.model_selection import StratifiedKFold
 import scipy.stats as stats
 from sklearn.linear_model import ElasticNetCV
 
+"""
+    XXXX: 二分类为BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
+          多分类为all_data
+"""
+
 
 def get_data():
     data = pd.read_csv("XXXX_train_delnan.csv")
@@ -30,7 +35,6 @@ def select_feature(data, label):
         enetCV = ElasticNetCV(alphas=[0.0001], l1_ratio=[.1], max_iter=5000).fit(elanet_train, y_train)
         mask = enetCV.coef_ != 0
         index2 = np.where(mask == True)  # True的下标，feature_index是个元组
-        # 保存下标，feature_index[0]是个列表
         np.save("elasticNet/XXXX第" + str(i) + "次折叠获得的特征" + ".npy", index2[0])
 
         i = i + 1
