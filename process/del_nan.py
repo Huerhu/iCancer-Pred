@@ -1,8 +1,12 @@
 import pandas as pd
 from tqdm import tqdm
 
+"""
+    XXXX: 二分类为BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
+          多分类为all_data
+"""
 
-# 训练集中去除含有NAN的位点
+
 def process_nan(file):
     count = 0
     data = pd.read_csv(file, chunksize=200)
