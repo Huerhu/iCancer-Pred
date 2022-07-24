@@ -10,10 +10,15 @@ from sklearn.metrics import roc_curve
 from sklearn.metrics import auc
 import tensorflow.keras.backend as K
 
+"""
+    二分类
+    XXXX: BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
+"""
+
 
 def get_data():
-    data = pd.read_csv("../data/train_test/XXXX/XXXX.csv")
-    label = pd.read_csv("../data/train_test/XXXX/XXXX_label.csv")
+    data = pd.read_csv("XXXX_train_delnan.csv")
+    label = pd.read_csv("XXXX_train_label.csv")
     x = data.iloc[:, 1:].values
     y = label.iloc[:, 1].values.flatten()
     return x, y
@@ -38,7 +43,7 @@ def specific(confusion_matrix):
 
 
 def train_model(x, y):
-    overlap = np.load("../data/elasticNet/XXXX_overlap.npy")
+    overlap = np.load("elasticNet/XXXX五次折叠后特征的交集（重复）.npy")
     train_feature = x[:, overlap]
     skf = StratifiedKFold(shuffle=True, n_splits=5, random_state=0)
     true_labels = []

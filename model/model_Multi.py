@@ -10,10 +10,15 @@ from sklearn.metrics import matthews_corrcoef
 from sklearn.metrics import cohen_kappa_score
 from focal_loss import multi_category_focal_loss2
 
+"""
+    多分类
+    XXXX: all_data
+"""
+
 
 def get_data():
-    data = pd.read_csv("../data/train_test/all_data/XXXX.csv")
-    label = pd.read_csv("../data/train_test/all_data/XXXX_label.csv")
+    data = pd.read_csv("XXXX_train_delnan.csv")
+    label = pd.read_csv("XXXX_train_label.csv")
     x = data.iloc[:, 1:].values
     y = label.iloc[:, 1].values.flatten()
     return x, y
@@ -39,7 +44,7 @@ def to_onehot(label):
 
 
 def train_model(x, y):
-    overlap = np.load("../data/elasticNet/all_data_overlap.npy")
+    overlap = np.load("elasticNet/XXXX五次折叠后特征的交集（重复）.npy")
     train_feature = x[:, overlap]
 
     skf = StratifiedKFold(n_splits=5, random_state=0, shuffle=True)
