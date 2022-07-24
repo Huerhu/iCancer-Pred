@@ -30,7 +30,6 @@ def get_label(sample_name):
     return df_label
 
 
-# 划分数据集
 def train_test(data, label, name):
     x_train, x_test, y_train, y_test = train_test_split(data, label, test_size=0.1, random_state=42, shuffle=True)
     x_train.columns = name
