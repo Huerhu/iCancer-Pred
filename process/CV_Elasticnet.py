@@ -51,7 +51,7 @@ def feature_process_cv():
     feature2 = np.intersect1d(feature1, data3)
     feature3 = np.intersect1d(feature2, data4)
     overlap1 = np.intersect1d(feature3, data5)
-    np.save("CV/XXXX五次折叠后特征的交集（重复）.npy", overlap1)
+    np.save("CV/XXXX_overlap.npy", overlap1)
 
 
 def feature_process_elasticNet():
@@ -65,7 +65,7 @@ def feature_process_elasticNet():
     feature2 = np.intersect1d(feature1, data3)
     feature3 = np.intersect1d(feature2, data4)
     overlap2 = np.intersect1d(feature3, data5)
-    np.save("elasticNet/XXXX五次折叠后特征的交集（重复）.npy", overlap2)
+    np.save("elasticNet/XXXX_overlap.npy", overlap2)
 
 
 if __name__ == '__main__':
