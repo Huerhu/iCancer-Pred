@@ -2,9 +2,11 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 """
-    XXXX: 
-        Binary Classification: BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
-        Multi-Classification: all_data
+    Binary Classification
+        XXXX: BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
+        
+    Multi-Classification
+        XXXX: all_data
 """
 
 

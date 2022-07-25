@@ -5,9 +5,11 @@ import scipy.stats as stats
 from sklearn.linear_model import ElasticNetCV
 
 """
-    XXXX: 
-        Binary Classification: BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
-        Multi-Classification: all_data
+    Binary Classification
+        XXXX: BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
+        
+    Multi-Classification
+        XXXX: all_data
 """
 
 
