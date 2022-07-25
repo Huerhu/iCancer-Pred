@@ -7,6 +7,7 @@ Created on Fri Nov 27 10:01:41 2020
 import tensorflow as tf
 from tensorflow.keras import backend as K
 
+
 def binary_focal_loss(gamma=2, alpha=0.25):
      """
      Binary form of focal loss.

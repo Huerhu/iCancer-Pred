@@ -2,8 +2,9 @@ import pandas as pd
 from tqdm import tqdm
 
 """
-    XXXX: 二分类为BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
-          多分类为all_data
+    XXXX: 
+        Binary Classification: BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
+        Multi-Classification: all_data
 """
 
 

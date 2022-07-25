@@ -11,7 +11,7 @@ from sklearn.metrics import auc
 import tensorflow.keras.backend as K
 
 """
-    二分类
+    Binary Classification
     XXXX: BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
 """
 

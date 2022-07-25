@@ -2,8 +2,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 """
-    XXXX: 二分类为BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
-          多分类为all_data
+    XXXX: 
+        Binary Classification: BRCA/COAD/KIRC/KIRP/LIHC/LUAD/LUSC
+        Multi-Classification: all_data
 """
 
 
@@ -23,7 +24,7 @@ def get_label(sample_name):
             labels.append('0')
         else:
             labels.append('1')
-            # 若为多分类，则 BRCA:'1', COAD:'2', KIRC:'3', KIRP:'4', LIHC:'5', LUAD:'6', LUSC:'7'
+            # For multi-Classification, BRCA:'1', COAD:'2', KIRC:'3', KIRP:'4', LIHC:'5', LUAD:'6', LUSC:'7'
     label_data.loc['label'] = labels
     label_data.to_csv('XXXX_label.csv', index=False)
     df_label = label_data.T

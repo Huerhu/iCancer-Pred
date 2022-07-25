@@ -19,5 +19,4 @@ e.g."BRCA_test_89.csv", "BRCA_test_label.csv" and "BRCA_overlap.npy"
 -- site_name folder:
    "XXXX_enet_site_name.csv" files are names of selected features, e.g."cg13332474".
 
--- train_test folder:
-   There are datasets and corresponding labels about training and testing in this paper.
+
