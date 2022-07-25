@@ -1,9 +1,13 @@
 # iCancer-Pred
 A tool for identifying cancer and its type in the early stage
 
-Web server: http://www.jci-bioinfo.cn/cancer is under maintenance.
+Web server: http://bioinfo.jcu.edu.cn/cancer or http://121.36.221.79/cancer
 
-You can visit this address: http://121.36.221.79/cancer, it is available.
+
+##  <a name="Data Download"></a> Data Download
+
+
+
 
 # Model Folder
 -- "model_binaray.py" needs train/test datasets, train/test labels and indexes. 
