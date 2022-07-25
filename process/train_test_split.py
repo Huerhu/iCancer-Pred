@@ -7,6 +7,7 @@ from sklearn.model_selection import train_test_split
         
     Multi-Classification
         XXXX: all_data
+        all_data is the union of 7 cancers.
 """
 
 
