@@ -11,8 +11,8 @@ from sklearn.metrics import cohen_kappa_score
 from focal_loss import multi_category_focal_loss2
 
 """
-    多分类
-    XXXX: all_data
+    Multi-Classification
+        XXXX: all_data
 """
 
 
