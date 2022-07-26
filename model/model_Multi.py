@@ -14,6 +14,7 @@ from focal_loss import multi_category_focal_loss2
 """
     Multi-Classification
         XXXX: all_data
+        all_data is the union of 7 cancers.
 """
 
 
