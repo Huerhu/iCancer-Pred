@@ -20,7 +20,7 @@ import tensorflow.keras.backend as K
 def get_data():
     data = pd.read_csv("XXXX_train_delnan.csv")
     label = pd.read_csv("XXXX_train_label.csv")
-    x = data.iloc[:, 1:].values
+    x = data.iloc[:, 1:].T.values
     y = label.iloc[:, 1].values.flatten()
     return x, y
 
