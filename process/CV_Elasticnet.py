@@ -17,7 +17,7 @@ def select_feature(data, label, i):
     cv_train = data.T
     var = stats.variation(cv_train, axis=1)
     index1 = np.where(var > 1)
-    np.save("CV/XXXX" + str(i) + "次折叠获得的特征" + ".npy", index1[0])
+    np.save("CV/XXXX第" + str(i) + "次折叠获得的特征" + ".npy", index1[0])
 
     index_1 = index1[0]
 
