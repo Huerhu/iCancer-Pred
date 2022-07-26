@@ -47,7 +47,7 @@ def net_model(INPUT_SHAPE):
 The features selected by using ElasticNet are used as the input of the classifier.
 ```python
 overlap = np.load("elasticNet/XXXX_overlap.npy")
-train_feature = x[:, overlap]
+train_feature = x_train[:, overlap]
 ```
 
 ##  <a name="Multi-Classification"></a> Multi-Classification
