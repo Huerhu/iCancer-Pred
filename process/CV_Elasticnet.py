@@ -13,34 +13,23 @@ from sklearn.linear_model import ElasticNetCV
 """
 
 
-def get_data():
-    data = pd.read_csv("XXXX_train_delnan.csv")
-    label = pd.read_csv("XXXX_train_label.csv")
-    df_data = data.iloc[:, 1:].T.values
-    df_label = label.iloc[:, 1].values.flatten()
-    return df_data, df_label,
+def select_feature(data, label, i):
+    cv_train = data.T
+    var = stats.variation(cv_train, axis=1)
+    index1 = np.where(var > 1)
+    np.save("CV/XXXX" + str(i) + "次折叠获得的特征" + ".npy", index1[0])
 
+    index_1 = index1[0]
 
-def select_feature(data, label):
-    skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
-    i = 1
-    for train_index, test_index in skf.split(data, label):
-        x_train, y_train = data[train_index], label[train_index]  # shape() 前者为样本数，后者为位点数
+    elanet_train = data[:, index_1]
+    enetCV = ElasticNetCV(alphas=[0.0001], l1_ratio=[.1], max_iter=5000).fit(elanet_train, label)
+    mask = enetCV.coef_ != 0
+    index2 = np.where(mask == True)
+    np.save("elasticNet/XXXX第" + str(i) + "次折叠获得的特征" + ".npy", index2[0])
 
-        cv_train = x_train.T
-        var = stats.variation(cv_train, axis=1)
-        index1 = np.where(var > 1)
-        np.save("CV/XXXX" + str(i) + "次折叠获得的特征" + ".npy", index1[0])
+    index_2 = index2[0]
 
-        index = index1[0]
-
-        elanet_train = x_train[:, index]
-        enetCV = ElasticNetCV(alphas=[0.0001], l1_ratio=[.1], max_iter=5000).fit(elanet_train, y_train)
-        mask = enetCV.coef_ != 0
-        index2 = np.where(mask == True)
-        np.save("elasticNet/XXXX第" + str(i) + "次折叠获得的特征" + ".npy", index2[0])
-
-        i = i + 1
+    return index_2
 
 
 def feature_process_cv():
@@ -70,7 +59,5 @@ def feature_process_elasticNet():
 
 
 if __name__ == '__main__':
-    data, label = get_data()
-    select_feature(data, label)
     feature_process_cv()
     feature_process_elasticNet()
