@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 from sklearn.model_selection import StratifiedKFold
+from process.CV_Elasticnet import select_feature
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import precision_score
 from sklearn.metrics import recall_score
@@ -44,10 +45,8 @@ def to_onehot(label):
 
 
 def train_model(x, y):
-    overlap = np.load("elasticNet/XXXX_overlap.npy")
-    train_feature = x[:, overlap]
-
     skf = StratifiedKFold(n_splits=5, random_state=0, shuffle=True)
+    i = 1
     accuracys = []
     precisions = []
     recalls = []
@@ -55,19 +54,24 @@ def train_model(x, y):
     kappas = []
     true_label = []
     prediction_label = []
-    for train_index, valid_index in skf.split(train_feature, y):
-        x_train, y_train = train_feature[train_index], y[train_index]
-        x_valid, y_valid = train_feature[valid_index], y[valid_index]
+    for train_index, valid_index in skf.split(x, y):
+        x_train, y_train = x[train_index], y[train_index]
+        x_valid, y_valid = x[valid_index], y[valid_index]
 
-        INPUT_SHAPE = x_train.shape
+        overlap = select_feature(x_train, y_train, i)
+        i = i + 1
+        train_feature = x_train[:, overlap]
+        valid_feature = x_valid[:, overlap]
 
         y_train = to_onehot(y_train)
         y_valid = to_onehot(y_valid)
+
+        INPUT_SHAPE = train_feature.shape
         model = net_model(INPUT_SHAPE)
-        model.fit(x_train, y_train, validation_data=(x_valid, y_valid), epochs=30, batch_size=32, verbose=1)
+        model.fit(train_feature, y_train, validation_data=(valid_feature, y_valid), epochs=30, batch_size=32, verbose=1)
 
         y_valid = np.argmax(y_valid, axis=1)
-        y_pre = model.predict_classes(x_valid).flatten()
+        y_pre = model.predict_classes(valid_feature).flatten()
 
         accuracy = accuracy_score(y_valid, y_pre)
         accuracys.append(accuracy)

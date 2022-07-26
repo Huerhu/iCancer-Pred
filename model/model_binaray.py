@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import tensorflow as tf
 from sklearn.model_selection import StratifiedKFold
+from process.CV_Elasticnet import select_feature
 from sklearn.metrics import accuracy_score
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import recall_score
@@ -43,22 +44,26 @@ def specific(confusion_matrix):
 
 
 def train_model(x, y):
-    overlap = np.load("elasticNet/XXXX_overlap.npy")
-    train_feature = x[:, overlap]
-
     skf = StratifiedKFold(shuffle=True, n_splits=5, random_state=0)
+    i = 1
     true_labels = []
     probs = []
     predictions = []
-    for train_index, valid_index in skf.split(train_feature, y):
-        x_train, y_train = train_feature[train_index], y[train_index]
-        x_valid, y_valid = train_feature[valid_index], y[valid_index]
+    for train_index, valid_index in skf.split(x, y):
+        x_train, y_train = x[train_index], y[train_index]
+        x_valid, y_valid = x[valid_index], y[valid_index]
 
-        INPUT_SHAPE = x_train.shape
+        overlap = select_feature(x_train, y_train, i)
+        i = i + 1
+
+        train_feature = x_train[:, overlap]
+        valid_feature = x_valid[:, overlap]
+
+        INPUT_SHAPE = train_feature.shape
         model = net_model(INPUT_SHAPE)
-        model.fit(x_train, y_train, epochs=20, batch_size=32, verbose=1)
-        prediction = model.predict(x_valid)
-        prob = model.predict_proba(x_valid)
+        model.fit(train_feature, y_train, epochs=20, batch_size=32, verbose=1)
+        prediction = model.predict(valid_feature)
+        prob = model.predict_proba(valid_feature)
         true_labels = true_labels + y_valid.tolist()
 
         probs = probs + prob[:, 0].flatten().tolist()
