@@ -53,11 +53,11 @@ def train_model(x, y):
         x_train, y_train = x[train_index], y[train_index]
         x_valid, y_valid = x[valid_index], y[valid_index]
 
-        overlap = select_feature(x_train, y_train, i)
+        index = select_feature(x_train, y_train, i)
         i = i + 1
 
-        train_feature = x_train[:, overlap]
-        valid_feature = x_valid[:, overlap]
+        train_feature = x_train[:, index]
+        valid_feature = x_valid[:, index]
 
         INPUT_SHAPE = train_feature.shape
         model = net_model(INPUT_SHAPE)
