@@ -32,19 +32,6 @@ def select_feature(data, label, i):
     return index_2
 
 
-def feature_process_cv():
-    data1 = np.load("CV/XXXX第1次折叠获得的特征.npy")
-    data2 = np.load("CV/XXXX第2次折叠获得的特征.npy")
-    data3 = np.load("CV/XXXX第3次折叠获得的特征.npy")
-    data4 = np.load("CV/XXXX第4次折叠获得的特征.npy")
-    data5 = np.load("CV/XXXX第5次折叠获得的特征.npy")
-    feature1 = np.intersect1d(data1, data2)
-    feature2 = np.intersect1d(feature1, data3)
-    feature3 = np.intersect1d(feature2, data4)
-    overlap1 = np.intersect1d(feature3, data5)
-    np.save("CV/XXXX_overlap.npy", overlap1)
-
-
 def feature_process_elasticNet():
     data1 = np.load("elasticNet/XXXX第1次折叠获得的特征.npy")
     data2 = np.load("elasticNet/XXXX第2次折叠获得的特征.npy")
@@ -59,5 +46,4 @@ def feature_process_elasticNet():
 
 
 if __name__ == '__main__':
-    feature_process_cv()
     feature_process_elasticNet()
