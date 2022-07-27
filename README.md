@@ -44,11 +44,6 @@ def net_model(INPUT_SHAPE):
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     return model
 ```
-The features selected by using ElasticNet are used as the input of the classifier.
-```python
-overlap = np.load("elasticNet/XXXX_overlap.npy")
-train_feature = x_train[:, overlap]
-```
 
 ##  <a name="Multi-Classification"></a> Multi-Classification
 For multi-classification, the structure of the fully connected network is as follows:
