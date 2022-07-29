@@ -17,7 +17,7 @@ def select_feature(data, label, i):
     cv_train = data.T
     var = stats.variation(cv_train, axis=1)
     index1 = np.where(var > 1)
-    np.save("CV/XXXX第" + str(i) + "次折叠获得的特征" + ".npy", index1[0])
+    np.save("CV/XXXX_No." + str(i) + " fold" + ".npy", index1[0])
 
     index_1 = index1[0]
 
@@ -25,7 +25,7 @@ def select_feature(data, label, i):
     enetCV = ElasticNetCV(alphas=[0.0001], l1_ratio=[.1], max_iter=5000).fit(elanet_train, label)
     mask = enetCV.coef_ != 0
     index2 = np.where(mask == True)
-    np.save("elasticNet/XXXX第" + str(i) + "次折叠获得的特征" + ".npy", index2[0])
+    np.save("elasticNet/XXXX_No." + str(i) + " fold" + ".npy", index2[0])
 
     index_2 = index2[0]
 
@@ -33,11 +33,11 @@ def select_feature(data, label, i):
 
 
 def feature_process_elasticNet():
-    data1 = np.load("elasticNet/XXXX第1次折叠获得的特征.npy")
-    data2 = np.load("elasticNet/XXXX第2次折叠获得的特征.npy")
-    data3 = np.load("elasticNet/XXXX第3次折叠获得的特征.npy")
-    data4 = np.load("elasticNet/XXXX第4次折叠获得的特征.npy")
-    data5 = np.load("elasticNet/XXXX第5次折叠获得的特征.npy")
+    data1 = np.load("elasticNet/XXXX_No.1 fold.npy")
+    data2 = np.load("elasticNet/XXXX_No.2 fold.npy")
+    data3 = np.load("elasticNet/XXXX_No.3 fold.npy")
+    data4 = np.load("elasticNet/XXXX_No.4 fold.npy")
+    data5 = np.load("elasticNet/XXXX_No.5 fold.npy")
     feature1 = np.intersect1d(data1, data2)
     feature2 = np.intersect1d(feature1, data3)
     feature3 = np.intersect1d(feature2, data4)
