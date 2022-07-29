@@ -93,11 +93,11 @@ def train_model(x, y):
         print("recall = ", recall)
         print("mcc = ", mcc)
         print("kappa = ", kappa)
-    print("平均accuracy = {:.3%} -std: {:.3f} ".format(np.mean(accuracys), np.std(accuracys)))
-    print("平均precision = {:.3%} -std: {:.3f} ".format(np.mean(precisions), np.std(precisions)))
-    print("平均recall = {:.3%} -std: {:.3f} ".format(np.mean(recalls), np.std(recalls)))
-    print("平均mcc = {:.3%} -std: {:.3f} ".format(np.mean(mccs), np.std(mccs)))
-    print("平均kappa = {:.3%} -std: {:.3f} ".format(np.mean(kappas), np.std(kappas)))
+    print("The average of accuracy = {:.3%} -std: {:.3f} ".format(np.mean(accuracys), np.std(accuracys)))
+    print("The average of precision = {:.3%} -std: {:.3f} ".format(np.mean(precisions), np.std(precisions)))
+    print("The average of recall = {:.3%} -std: {:.3f} ".format(np.mean(recalls), np.std(recalls)))
+    print("The average of mcc = {:.3%} -std: {:.3f} ".format(np.mean(mccs), np.std(mccs)))
+    print("The average of kappa = {:.3%} -std: {:.3f} ".format(np.mean(kappas), np.std(kappas)))
 
 
 if __name__ == '__main__':
