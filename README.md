@@ -1,5 +1,5 @@
 # iCancer-Pred
-A tool for identifying cancer and its type in the early stage
+[A tool for identifying cancer and its type in the early stage](https://doi.org/10.1016/j.ygeno.2022.110486)
 
 Web server: http://bioinfo.jcu.edu.cn/cancer or http://121.36.221.79/cancer
 
